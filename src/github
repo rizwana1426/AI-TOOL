@@ -1,3 +1,8 @@
 git status
 git  remote add origin <repo url>
+check repo
 git remote -v
+change branch name
+git branch -m master main
+link upstream
+git push -u origin main

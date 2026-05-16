@@ -17,7 +17,7 @@ export class Email {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer"
           },
           body: JSON.stringify({
             model: "llama-3.3-70b-versatile",
