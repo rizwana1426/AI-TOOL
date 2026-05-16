@@ -1,8 +1,9 @@
-<button (click)="generateEmail()">
-  Generate Email
-</button> @if (generatedEmail) {
-<div class="email-result">
-    <h3>Generated Email:</h3>
-    <p>{{ generatedEmail }}</p>
+<div class="container">
+    <button class="generate-btn" (click)="generateEmail()" [disabled]="isLoading()">
+    @if (!isLoading()) {
+      📧 Generate Email
+    } @else {
+      ⏳ Generating...
+    }
+  </button>
 </div>
-}
