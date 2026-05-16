@@ -6,3 +6,5 @@ change branch name
 git branch -m master main
 link upstream
 git push -u origin main
+git branch
+git push --set-upstream origin main
