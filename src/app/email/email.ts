@@ -1,7 +1,6 @@
 import { Component, signal, ChangeDetectionStrategy, computed, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-email',
@@ -57,30 +56,16 @@ export class Email {
     this.isLoading.set(true);
 
     try {
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${environment.groqApiKey}`,
         },
-        body: JSON.stringify({
-          model: 'llama-3.3-70b-versatile',
-          messages: [
-            {
-              role: 'user',
-              content: `Write a professional email with these details:
-- I am: ${whoAmI}
-- Writing to: ${writingTo}
-- My purpose: ${whatIWant}
-
-Rules:
-- Start with "Subject:" at the very beginning. No spaces before it.
-- Then write the email body.
-- No extra indentation anywhere.
-- Keep it polite and professional.`,
-            },
-          ],
-        }),
+      body: JSON.stringify({
+      whoAmI,
+      writingTo,
+      whatIWant,
+    }),
       });
 
       if (!response.ok) {

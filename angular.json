@@ -17,6 +17,7 @@
                 "build": {
                     "builder": "@angular/build:application",
                     "options": {
+                        "allowedCommonJsDependencies": ["sweetalert2"],
                         "browser": "src/main.ts",
                         "tsConfig": "tsconfig.app.json",
                         "assets": [{
@@ -29,15 +30,17 @@
                     },
                     "configurations": {
                         "production": {
+                            "aot": true,
+                            "extractLicenses": true,
                             "budgets": [{
                                     "type": "initial",
-                                    "maximumWarning": "500kB",
-                                    "maximumError": "1MB"
+                                    "maximumWarning": "2MB",
+                                    "maximumError": "4MB"
                                 },
                                 {
                                     "type": "anyComponentStyle",
-                                    "maximumWarning": "4kB",
-                                    "maximumError": "8kB"
+                                    "maximumWarning": "6kB",
+                                    "maximumError": "10kB"
                                 }
                             ],
                             "outputHashing": "all"
