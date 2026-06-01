@@ -1,9 +1,54 @@
-<div class="container">
-    <button class="generate-btn" (click)="generateEmail()" [disabled]="isLoading()">
-    @if (!isLoading()) {
-      📧 Generate Email
-    } @else {
-      ⏳ Generating...
-    }
-  </button>
+@if (isDemoExpired) {
+
+<div class="expired-screen">
+    <h2>⏰ Demo Expired</h2>
+    <p>{{ demoMessage }}</p>
+    <a href="mailto:rizwana1426@outlook.com">
+      Contact Us To Upgrade
+    </a>
+
 </div>
+<div class="expire-mark">
+    Built by <a href="https://instagram.com/tech_rizwana" target="_blank">@tech_rizwana</a> 🚀
+</div>
+
+
+} @else {
+<div class="container">
+    <div class="card">
+        <h1>📧 AI Email Generator</h1>
+        <p>Fill the details and get your email instantly.</p>
+
+        <form [formGroup]="form">
+            <!-- Input 1 -->
+            <div class="input-group">
+                <label for="whoAmI">Who are you?</label>
+                <input id="whoAmI" type="text" formControlName="whoAmI" placeholder="Ex: Freelance Angular Developer" aria-required="true" />
+            </div>
+
+            <!-- Input 2 -->
+            <div class="input-group">
+                <label for="writingTo">Who are you writing to?</label>
+                <input id="writingTo" type="text" formControlName="writingTo" placeholder="Ex: HR Manager at startup" aria-required="true" />
+            </div>
+
+            <!-- Input 3 -->
+            <div class="input-group">
+                <label for="whatIWant">What do you want?</label>
+                <input id="whatIWant" type="text" formControlName="whatIWant" placeholder="Ex: Follow up on my proposal" aria-required="true" />
+            </div>
+
+            <button type="button" class="generate-btn" (click)="generateEmail()" [disabled]="form.invalid || isLoading()" aria-label="Generate email">
+                @if (!isLoading()) {
+                    📧 Generate Email
+                } @else {
+                    ⏳ Generating...
+                }
+            </button>
+        </form>
+    </div>
+    <div class="watermark">
+        Built by <a href="https://instagram.com/tech_rizwana" target="_blank">@tech_rizwana</a> 🚀
+    </div>
+</div>
+}
