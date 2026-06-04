@@ -120,7 +120,7 @@ export class Email {
     `,
       footer: `
     <div class="watermark">
-        Built by <a href="https://instagram.com/tech_rizwana" target="_blank">Zeivra AI</a> 🚀
+        Built by <a>Zeivra AI</a> 🚀
     </div>
   `,
 
