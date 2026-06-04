@@ -224,7 +224,7 @@ form {
 }
 
 .watermark a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 ::ng-deep .watermark a:visited {
@@ -293,5 +293,5 @@ form {
 }
 
 .expire-mark a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
